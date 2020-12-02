@@ -4,13 +4,62 @@
         "name":"Kati",
         "text":"hdjasdhajdh jdahdjahjadha",
         "url":"https://iili.io/FU2LoN.png",
-        "date": "12/02/10"
+        "date": "12/02/10",
+        "likes": [
+            {
+                "likeId": "1",
+                "userId": "1606823447523"
+            },
+            {
+                "likeId": "2",
+                "userId": "1606823454340"
+            }
+        ], 
+        "comments": [
+            {
+                "commentId": "1606823532842",
+                "date": "1606823734814",
+                "userId": "1606823957650",
+                "commentTextContent":"This is coool"
 
+            },
+            {
+                "commentId": "1606823741158",
+                "date": "1606823951094",
+                "userId": "",
+                "commentTextContent":"This is coool"
+            }
+        ]
     },
     {
         "id": "1606722462595",
         "name":"Nat",
         "text":"ndamdjad dbadjasbdna",
-        "url":"https://iili.io/FUnO4p.png"
+        "url":"https://iili.io/FUnO4p.png",
+        "likes": [
+            {
+                "likeId": "3",
+                "userId": "1606824161940"
+            },
+            {
+                "likeId": "4",
+                "userId": "1606824197886"
+            }
+        ], 
+        "comments": [
+            {
+                "commentId": "1606823532842",
+                "date": "1606824210638",
+                "userId": "1606824226691",
+                "commentTextContent":"This is coool"
+
+            },
+            {
+                "commentId": "1606824266116",
+                "date": "1606824272150",
+                "userId": "1606824350594",
+                "commentTextContent":"This is coool"
+            }
+        ]
     }
 ]

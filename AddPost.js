@@ -1,25 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
+import {Context} from "./Context"
 
 function AddPost() {
+
+    const {feeds, setFeeds} = useContext(Context);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.currentTarget.add.value;
+        console.log(form);
+
+    let newPost = {
+        text:form,
+        id: Date.now(),
+        url: "",
+    }
+
+    feeds.push(newPost);
+    console.log(feeds);
+    setFeeds()
+    }
 
 
     return(
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
               <textarea
-                      required
                       placeholder="What is in your mind"
+                      name="add"
                   />
                   <input
-                      placeholder="Title"
+                      placeholder="url"
+                      name="add"
+                      type="url"
                   />
-                  <button>Post</button>
+                  <button className="submit">Post</button>
           </form> 
        </>
     )
 }
 
 export default AddPost;
-
-
-//    onChange={e => setTitle(e.currentTarget.value)}
