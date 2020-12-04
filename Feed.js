@@ -1,104 +1,83 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import {Context} from "./Context";
 import styled from "styled-components";
 
 
-const PageStyle = styled.div`
-    display: flex;
-    flex-direction: column;
-    div {
-        display: flex;
-        flex-direction: row;
-        align-items: space-between;
-        gap: 2rem;
-    }
-    .profile {
-        border-radius: 50%;
-        width: 20%;
-    }
-    button {
-            padding-top: 5px;
-            padding-left: 5px;
-            padding-bottom: 5px;
-            padding-right: 5px;
-            background: pink;
-            border: none;
-            width: 30%;
-            height: 135%;
-            cursor: pointer;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-    }
-    button:hover {
-        background: hotpink;
-    }
+const ListStyle = styled.div`
+    list-style: none;
+    
 `
-
 function Feed() {
 
-const {feeds, users, setFeeds} = useContext(Context);
-const [likes, setLikes] = useState(0);
+const {state, dispatch} = useContext(Context);
+const {feeds} = state;
 
 
-let lsUsers = users.some((user) => {
-    return(
-        <div>
-            <p>{user.userName}</p>
-        </div>
+let lsFeeds = feeds.map(feed => {
+    return (
+    <ListStyle key={feed.id}>
+        <li>{feed.text}</li>
+        <img src={feed.feedUrl} />
+    </ListStyle>
     )
-}) 
+})
 
 
-const addLike = () => {
-    setLikes(prevCount => prevCount + 1)
-}
+return (
+    <div>
+        <h1>Feed</h1>
+        <p>{lsFeeds}</p>
+    </div>
 
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-    const commentForm = e.currentTarget.add.value;
-    console.log(commentForm);
-
-
-let comment = {
-    commentTextContent: commentForm,
-    id: Date.now(),
-    url: "",
-}
-
-feeds.push(comment);
-console.log(feeds);
-setFeeds();
+)
 
 }
 
 
- let lsFeeds = feeds.map((feed) => {
-     return (
-         <PageStyle key={feed.id}>
-             <p>{feed.text}</p>
-             <div>
-                <p>{feed.date}</p>
-             </div>
-            <img src={feed.url} alt={feed.name} />
-                <button onClick={addLike} key={feed.id}>{likes}</button>
-            <form onSubmit={handleSubmit}>
-                <input name="add" placeholder="Write your comment" />
-                <button type="submit">Add</button>
-            </form>
-        </PageStyle>
-     )
- })
+// const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const commentForm = e.currentTarget.add.value;
+//     console.log(commentForm);
 
-    return(
-        <>
-            <div>
-               {/* <div>{lsUsers}</div> */}
-               <div>{lsFeeds}</div>
-            </div>
-        </>
-    )
-    }
+//     dispatch({type: "ADD_NEW_COMMENT"})
+// }
+
+
+//  let lsFeeds = feeds.map((feed) => {
+//      return (
+//          <PageStyle key={feed.id}>
+//              <p>{feed.text}</p>
+//              <div>
+//                 <p>{feed.date}</p>
+//              </div>
+//             <img src={feed.url} alt={feed.name} />
+//             <button onClick={addLike} key={feed.id}>{likes}</button>
+//             {feed.comments.map((comment) => {
+//                 return (
+//                 <div className="text" key={comment.userId}>{comment.commentTextContent}</div>
+//                 )
+//             })}  
+//             <form onSubmit={handleSubmit}>
+//                 <input name="add" placeholder="Write your comment" />
+//                 <button type="submit">Add</button>
+//             </form>
+//         </PageStyle>
+//      )
+//  })
+
+
+   
+
+    // return(
+    //     <>
+    //         <div>
+    //            {/* <div>{lsUsers}</div> */}
+    //             <div>{lsFeeds}</div>
+               
+    //         </div>
+    //     </>
+    // )
+    // }
 
 export default Feed;
 

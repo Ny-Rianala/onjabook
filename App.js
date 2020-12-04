@@ -3,7 +3,7 @@ import { Switch, Route} from 'react-router-dom';
 import Header from "./Header";
 import Feed from "./Feed";
 import AddPost from "./AddPost";
-import UserName from "./UserName";
+import Profile from "./Profile";
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
                 <Route exact path="/addPost">
                     <AddPost />
                 </Route>
-                <Route exact path="/username">
-                    <UserName />
+                <Route exact path="/profile">
+                    <Profile />
                 </Route>
             </Switch>
         </div>
