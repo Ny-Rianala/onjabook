@@ -35981,8 +35981,18 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    list-style: none;\n    gap: 15px;\n    padding: 0;\n    margin: 0;\n    img {\n        width: 35px;\n        height: 35px;\n        border-radius: 50%;\n    }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    list-style: none;\n    text-decoration: none;\n    padding: 0;\n    margin: 0;   \n    a {\n        text-decoration: none;\n        list-style: none;\n        color: tomato;\n        font-size: 18px;\n    }\n    img {\n        width: 35px;\n        height: 35px;\n        border-radius: 50%;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\nul {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    list-style: none;\n    text-decoration: none;\n    padding: 0;\n    margin: 0;  \n    a {\n        font-size: 24px;\n        color: rgb(24, 128, 160);\n        text-decoration: none;\n    }\n    a:hover {\n        color: rgb(56, 118, 233);\n    }\n}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -35995,6 +36005,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var Headings = _styledComponents.default.div(_templateObject());
 
+var ProfileStyles = _styledComponents.default.div(_templateObject2());
+
 function Header() {
   var _useContext = (0, _react.useContext)(_Context.Context),
       state = _useContext.state;
@@ -36006,18 +36018,16 @@ function Header() {
     return user.userId == currentUser;
   });
   console.log(currentUserObj);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Headings, null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Headings, null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, "Feed")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/addPost"
-  }, "Add a Post")), /*#__PURE__*/_react.default.createElement("li", {
-    className: " LinkStyle"
-  }, currentUserObj && /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/profile"
-  }, /*#__PURE__*/_react.default.createElement("span", null, currentUserObj.userName), /*#__PURE__*/_react.default.createElement("img", {
+  }, "Add a Post")), /*#__PURE__*/_react.default.createElement("li", null, currentUserObj && /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/userName"
+  }, /*#__PURE__*/_react.default.createElement(ProfileStyles, null, /*#__PURE__*/_react.default.createElement("span", null, currentUserObj.userName), /*#__PURE__*/_react.default.createElement("img", {
     src: currentUserObj.profilePicture,
     alt: "Profile pic of ".concat(currentUserObj.userName)
-  })))));
+  })))))));
 }
 
 var _default = Header;
@@ -36270,7 +36280,53 @@ function Profile() {
 
 var _default = Profile;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Context":"Context.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Context":"Context.js"}],"UserName.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgrid-template-columns: 300px;\n\tgap: 10px;\n\tinput,\n\tselect,\n\ttextarea {\n\t\theight: 30px;\n        background: grey;\n\t\tborder: none;\n\t\tpadding: 0 1rem;\n\t\tborder-radius: 5px;\n\t}\n\tinput::placeholder {\n        color: white;\n\t\topacity: 1;\n    }\n    button {\n        padding-top: 5px;\n        padding-left: 5px;\n        padding-bottom: 5px;\n        padding-right: 5px;\n        background: blue;\n        border: none;\n        width: 30%;\n        height: 135%;\n    }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var FormStyles = _styledComponents.default.form(_templateObject());
+
+function UserName() {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(FormStyles, null, /*#__PURE__*/_react.default.createElement("span", null, "Username"), /*#__PURE__*/_react.default.createElement("input", {
+    placeholder: "type your username",
+    required: true,
+    onChange: function onChange(e) {
+      return setTitle(e.currentTarget.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement("span", null, "Image url"), /*#__PURE__*/_react.default.createElement("input", {
+    placeholder: "image url",
+    required: true,
+    onChange: function onChange(e) {
+      return setTitle(e.currentTarget.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement("button", null, "Save")));
+}
+
+var _default = UserName;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36290,6 +36346,8 @@ var _AddPost = _interopRequireDefault(require("./AddPost"));
 
 var _Profile = _interopRequireDefault(require("./Profile"));
 
+var _UserName = _interopRequireDefault(require("./UserName"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
@@ -36301,13 +36359,13 @@ function App() {
     path: "/addPost"
   }, /*#__PURE__*/_react.default.createElement(_AddPost.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
-    path: "/profile"
-  }, /*#__PURE__*/_react.default.createElement(_Profile.default, null))));
+    path: "/userName"
+  }, /*#__PURE__*/_react.default.createElement(_UserName.default, null))));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Header":"Header.js","./Feed":"Feed.js","./AddPost":"AddPost.js","./Profile":"Profile.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Header":"Header.js","./Feed":"Feed.js","./AddPost":"AddPost.js","./Profile":"Profile.js","./UserName":"UserName.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
